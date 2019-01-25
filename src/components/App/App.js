@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import Header from './../Header/Header.js';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import FeedbackReview from './../FeedbackReview/FeedbackReview.js';
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <br/>
+        <FeedbackReview />
       </div>
     );
   }
