@@ -19,14 +19,27 @@ const feelings = (state = 0, action) => {
 }
 
 const understanding = (state = 0, action) => {
+    if(action.type === 'SET_UNDERSTANDING') {
+        // convert the incoming string to a number
+        let newState = Number(action.payload)
+        return newState;
+    }
     return state;
 }
 
 const support = (state = 0, action) => {
+    if(action.type === 'SET_SUPPORT') {
+        // convert the incoming string to a number
+        let newState = Number(action.payload)
+        return newState;
+    }
     return state;
 }
 
-const comments = (state = 0, action) => {
+const comments = (state = '', action) => {
+    if(action.type === 'SET_COMMENTS') {
+        return action.payload;
+    }
     return state;
 }
 
