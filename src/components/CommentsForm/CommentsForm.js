@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import FeedbackReview from './../FeedbackReview/FeedbackReview.js';
 
 // material-ul import statements
 import TextField from '@material-ui/core/TextField';
@@ -25,11 +26,10 @@ class CommentsForm extends Component {
         console.log(this.state.value);
     }
 
-    sendToSummaryForm = () => {
-        // set the value for support in redux store
-        const action = { type: 'SET_SUPPORT', payload: Number(this.state.value) };
+    sendToReview = () => {
+        const action = { type: 'SET_COMMENTS', payload: this.state.value };
         this.props.dispatch(action);
-        this.props.history.push('/comments');
+        this.props.history.push('/review');
     } // end sendToSupportForm
 
     render() {
@@ -48,10 +48,11 @@ class CommentsForm extends Component {
                     placeholder="enter any comments here"
                 />
                 <div>
-                    <Button variant="contained" color="primary" onClick={this.sendToCommentsForm}>
+                    <Button variant="contained" color="primary" onClick={this.sendToReview}>
                         Next page
                     </Button>
                 </div>
+                <FeedbackReview />
             </div>
         )
     }

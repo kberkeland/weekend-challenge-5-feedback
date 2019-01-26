@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import FeedbackReview from './../FeedbackReview/FeedbackReview.js';
 
 // material-ul import statements
 import Radio from '@material-ui/core/Radio';
@@ -83,6 +84,7 @@ class SupportForm extends Component {
                         Next page
                     </Button>
                 </div>
+                <FeedbackReview />
             </div>
         )
     }
