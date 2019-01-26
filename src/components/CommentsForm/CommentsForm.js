@@ -1,13 +1,60 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+// material-ul import statements
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 class CommentsForm extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            value: '',
+        };
+    }
+
+    // changes the radio button value
+    handleChange = (event) => {
+        this.setState({
+            value: event.target.value
+        }, () => { this.logState() })
+    };
+
+    logState = () => {
+        console.log(this.state.value);
+    }
+
+    sendToSummaryForm = () => {
+        // set the value for support in redux store
+        const action = { type: 'SET_SUPPORT', payload: Number(this.state.value) };
+        this.props.dispatch(action);
+        this.props.history.push('/comments');
+    } // end sendToSupportForm
+
     render() {
         return (
             <div>
-
+                <TextField
+                    id="outlined-multiline-flexible"
+                    label="Comments"
+                    multiline
+                    rowsMax="4"
+                    value={this.state.value}
+                    onChange={this.handleChange}
+                    margin="normal"
+                    helperText="Place to enter any comments you have about your day."
+                    variant="outlined"
+                    placeholder="enter any comments here"
+                />
+                <div>
+                    <Button variant="contained" color="primary" onClick={this.sendToCommentsForm}>
+                        Next page
+                    </Button>
+                </div>
             </div>
         )
     }
 }
 
-export default CommentsForm;
+export default connect()(CommentsForm);

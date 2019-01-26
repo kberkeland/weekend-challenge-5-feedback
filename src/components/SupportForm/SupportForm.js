@@ -81,7 +81,7 @@ class SupportForm extends Component {
                 <div>
                     <Button variant="contained" color="primary" onClick={this.sendToCommentsForm}>
                         Next page
-                </Button>
+                    </Button>
                 </div>
             </div>
         )
