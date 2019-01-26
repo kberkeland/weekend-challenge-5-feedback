@@ -29,9 +29,7 @@ const understanding = (state = 0, action) => {
 
 const support = (state = 0, action) => {
     if(action.type === 'SET_SUPPORT') {
-        // convert the incoming string to a number
-        let newState = Number(action.payload)
-        return newState;
+        return action.payload;
     }
     return state;
 }

@@ -24,7 +24,7 @@ class FeelingsForm extends Component {
     handleChange = (event) => {
         this.setState({
             value: event.target.value
-        }, () => {this.logState()})
+        }, () => { this.logState() })
     };
 
     logState = () => {
@@ -41,49 +41,49 @@ class FeelingsForm extends Component {
     render() {
         return (
             <div>
-            <div className="div-class">
-                <FormControl component="fieldset">
-                    <FormLabel component="legend">How are you feeling today?</FormLabel>
-                    <RadioGroup
-                        aria-label="Feelings"
-                        name="feelings"
-                        value={this.state.value}
-                        onChange={this.handleChange}
-                    >
-                        <FormControlLabel
-                            value="5"
-                            control={<Radio color="primary" />}
-                            label="I'm feeling great! - 5"
-                            labelPlacement="start" />
-                        <FormControlLabel
-                            value="4"
-                            control={<Radio color="primary" />}
-                            label="4"
-                            labelPlacement="start" />
-                        <FormControlLabel
-                            value="3"
-                            control={<Radio color="primary" />}
-                            label="3"
-                            labelPlacement="start" />
-                        <FormControlLabel
-                            value="2"
-                            control={<Radio color="primary" />}
-                            label="2"
-                            labelPlacement="start" />
-                        <FormControlLabel
-                            value="1"
-                            control={<Radio color="primary" />}
-                            label="I'm very stressed. - 1"
-                            labelPlacement="start" />
-                        />
+                <div className="div-class">
+                    <FormControl component="fieldset">
+                        <FormLabel component="legend">How are you feeling today?</FormLabel>
+                        <RadioGroup
+                            aria-label="Feelings"
+                            name="feelings"
+                            value={this.state.value}
+                            onChange={this.handleChange}
+                        >
+                            <FormControlLabel
+                                value="5"
+                                control={<Radio color="primary" />}
+                                label="I'm feeling great! - 5"
+                                labelPlacement="start" />
+                            <FormControlLabel
+                                value="4"
+                                control={<Radio color="primary" />}
+                                label="4"
+                                labelPlacement="start" />
+                            <FormControlLabel
+                                value="3"
+                                control={<Radio color="primary" />}
+                                label="3"
+                                labelPlacement="start" />
+                            <FormControlLabel
+                                value="2"
+                                control={<Radio color="primary" />}
+                                label="2"
+                                labelPlacement="start" />
+                            <FormControlLabel
+                                value="1"
+                                control={<Radio color="primary" />}
+                                label="I'm very stressed. - 1"
+                                labelPlacement="start" />
+                            />
                         </RadioGroup>
-                </FormControl>
-            </div>
-            <div>
-                <Button variant="contained" color="primary" onClick={this.sendToUnderstandingForm}>
-                    Next page
+                    </FormControl>
+                </div>
+                <div>
+                    <Button variant="contained" color="primary" onClick={this.sendToUnderstandingForm}>
+                        Next page
                 </Button>
-            </div>
+                </div>
             </div>
         )
     }
