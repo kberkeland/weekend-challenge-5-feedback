@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import axios from 'axios';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Header from './../Header/Header.js';
 import FeedbackReview from './../FeedbackReview/FeedbackReview.js';
+import FeelingsForm from './../FeelingsForm/FeelingsForm.js';
+import UnderstandingForm from './../UnderstandingForm/UnderstandingForm.js';
+import SupportForm from './../SupportForm/SupportForm.js';
+import CommentsForm from './../CommentsForm/CommentsForm.js';
 
 class App extends Component {
   render() {
@@ -11,6 +14,12 @@ class App extends Component {
       <div className="App">
         <Header />
         <br/>
+        <Router>
+          <Route exact path="/" component={FeelingsForm} />
+          <Route exact path="/understanding" component={UnderstandingForm} />
+          <Route exact path="/support" component={SupportForm} />
+          <Route exact path="/comments" component={CommentsForm} />
+        </Router>
         <FeedbackReview />
       </div>
     );
