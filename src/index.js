@@ -10,6 +10,11 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 const feelings = (state = 0, action) => {
+    if(action.type === 'SET_FEELINGS') {
+        // convert the incoming string to a number
+        let newState = Number(action.payload)
+        return newState;
+    }
     return state;
 }
 

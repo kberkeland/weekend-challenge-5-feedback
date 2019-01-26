@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class FeedbackReview extends Component {
     render() {
         return (
-            <div>
+            <footer>
                 <h2>Review your feedback:</h2>
-            </div>
+                {JSON.stringify(this.props.reduxStore)}
+            </footer>
         )
     }
 }
 
-export default FeedbackReview;
+
+const mapReduxStoreToProps = (reduxStore) => ({
+    reduxStore
+});
+
+export default connect(mapReduxStoreToProps)(FeedbackReview);
