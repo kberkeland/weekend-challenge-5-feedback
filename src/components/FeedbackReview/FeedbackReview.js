@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { connect } from 'react-redux';
 import FeedbackReviewList from './FeedbackReviewList.js';
 
@@ -16,11 +17,41 @@ class FeedbackReview extends Component {
         }
     }
 
-    sendToCongrats = () => {
-        const action = { type: 'RESET' };
-        this.props.dispatch(action);
-        this.props.history.push('/congrats');
+    // sendToCongrats = () => {
+    //     const action = { type: 'RESET' };
+    //     this.props.dispatch(action);
+    //     this.props.history.push('/congrats');
+    // } // end sendToCongratsForm
+
+    sendToCongrats = (event) => {
+        // prevent the form from refreshing the DOM
+        // event.preventDefault();
+        // send all feedback input fields to the database
+        let dataToSend = {
+            feelings: this.props.reduxStore.feelings,
+            understanding: this.props.reduxStore.understanding,
+            support: this.props.reduxStore.support,
+            comments: this.props.reduxStore.comments.comments         
+        };
+
+        // axios POST request to send feedback to the database
+        axios({
+            method: 'POST',
+            url: `/feedback`,
+            data: dataToSend
+        }).then((response) => {
+            // reset the redux store to its initial values
+            const action = { type: 'RESET' };
+            this.props.dispatch(action);
+            // send the user to the CongratsForm page
+            this.props.history.push('/congrats');
+        }).catch((error) => {
+            // console log and error message that the POST failed
+            console.log(`Error in axios POST: ${error}`);
+            alert(`Error sending feedback to the database.`);
+        });
     } // end sendToCongratsForm
+
 
     render() {
 
