@@ -27,7 +27,9 @@ class CommentsForm extends Component {
     }
 
     sendToReview = () => {
-        const action = { type: 'SET_COMMENTS', payload: this.state.value };
+        const commentsObject = { check: true,
+                                 comments: this.state.value };
+        const action = { type: 'SET_COMMENTS', payload: commentsObject };
         this.props.dispatch(action);
         this.props.history.push('/review');
     } // end sendToSupportForm

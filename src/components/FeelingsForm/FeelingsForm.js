@@ -34,7 +34,7 @@ class FeelingsForm extends Component {
 
     sendToUnderstandingForm = () => {
         // set the value for feelings in redux store
-        const action = { type: 'SET_FEELINGS', payload: this.state.value };
+        const action = { type: 'SET_FEELINGS', payload: Number(this.state.value) };
         this.props.dispatch(action);
         this.props.history.push('/understanding');
     } // end sendToUnderstandingForm

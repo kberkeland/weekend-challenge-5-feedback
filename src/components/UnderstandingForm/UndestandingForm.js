@@ -33,7 +33,7 @@ class UnderstandingForm extends Component {
 
     sendToSupportForm = () => {
         // set the value for understanding in redux store
-        const action = { type: 'SET_UNDERSTANDING', payload: this.state.value };
+        const action = { type: 'SET_UNDERSTANDING', payload: Number(this.state.value) };
         this.props.dispatch(action);
         this.props.history.push('/support');
     } // end sendToSupportForm

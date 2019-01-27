@@ -7,7 +7,7 @@ import FeelingsForm from './../FeelingsForm/FeelingsForm.js';
 import UnderstandingForm from './../UnderstandingForm/UndestandingForm.js';
 import SupportForm from './../SupportForm/SupportForm.js';
 import CommentsForm from './../CommentsForm/CommentsForm.js';
-import SummaryForm from './../SummaryForm/SummaryForm.js';
+import CongratsForm from './../CongratsForm/CongratsForm';
 
 class App extends Component {
   render() {
@@ -22,7 +22,7 @@ class App extends Component {
             <Route exact path="/support" component={SupportForm} />
             <Route exact path="/comments" component={CommentsForm} />
             <Route exact path="/review" component={FeedbackReview} />
-            <Route exact path="/summary" component={SummaryForm} />
+            <Route exact path="/congrats" component={CongratsForm} />
           </div>
         </Router>
       </div>

@@ -9,34 +9,43 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const feelings = (state = 0, action) => {
+const initialFeelings = 0;
+const feelings = (state = initialFeelings, action) => {
     if(action.type === 'SET_FEELINGS') {
-        // convert the incoming string to a number
-        let newState = Number(action.payload)
-        return newState;
+        return action.payload;
+    } else if( action.type === 'RESET') {
+        return initialFeelings;
     }
     return state;
 }
 
-const understanding = (state = 0, action) => {
+const initialUnderstanding = 0;
+const understanding = (state = initialUnderstanding, action) => {
     if(action.type === 'SET_UNDERSTANDING') {
-        // convert the incoming string to a number
-        let newState = Number(action.payload)
-        return newState;
+        return action.payload;
+    } else if( action.type === 'RESET') {
+        return initialUnderstanding;
     }
     return state;
 }
 
-const support = (state = 0, action) => {
+const initialSupport = 0;
+const support = (state = initialSupport, action) => {
     if(action.type === 'SET_SUPPORT') {
         return action.payload;
+    } else if( action.type === 'RESET') {
+        return initialSupport;
     }
     return state;
 }
 
-const comments = (state = '', action) => {
+const initialComments = { check: false,
+                          comments: '' };
+const comments = (state = initialComments, action) => {
     if(action.type === 'SET_COMMENTS') {
         return action.payload;
+    } else if( action.type === 'RESET') {
+        return initialComments;
     }
     return state;
 }
