@@ -49,6 +49,17 @@ class CommentsForm extends Component {
                     variant="outlined"
                     placeholder="enter any comments here"
                 />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
                 <div>
                     <Button variant="contained" color="primary" onClick={this.sendToReview}>
                         Next page

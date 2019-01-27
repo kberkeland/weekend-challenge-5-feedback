@@ -11,6 +11,8 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import FolderIcon from '@material-ui/icons/Folder';
 import DeleteIcon from '@material-ui/icons/Delete';
+import BackIcon from '@material-ui/icons/KeyboardBackspace';
+import CheckIcon from '@material-ui/icons/Check';
 import Button from '@material-ui/core/Button';
 
 class FeedbackReviewList extends Component {
@@ -32,6 +34,12 @@ class FeedbackReviewList extends Component {
     //     )
     // } // end sendToCongratsForm
 
+    // componentDidMount() {
+    //     if(this.props.reduxStore.feelings !== 0) {
+    //         feelingsColor
+    //     }
+    // }
+
     render() {
         const feelingsRating = `Feelings: ${this.props.reduxStore.feelings}`;
         const understandingRating = `Understanding: ${this.props.reduxStore.understanding}`;
@@ -51,60 +59,60 @@ class FeedbackReviewList extends Component {
                 <ListItem>
                     <ListItemAvatar>
                         <Avatar>
-                            <FolderIcon />
+                            <CheckIcon color={ this.props.reduxStore.feelings === 0 ? "disabled" : "primary"} />
                         </Avatar>
                     </ListItemAvatar>
                     <ListItemText
                         primary={feelingsRating}
                     />
                     <ListItemSecondaryAction>
-                        <IconButton aria-label="Delete">
-                            <DeleteIcon />
+                        <IconButton aria-label="Back">
+                            <BackIcon />
                         </IconButton>
                     </ListItemSecondaryAction>
                 </ListItem>
                 <ListItem>
                     <ListItemAvatar>
                         <Avatar>
-                            <FolderIcon />
+                            <CheckIcon color={ this.props.reduxStore.understanding === 0 ? "disabled" : "primary"} />
                         </Avatar>
                     </ListItemAvatar>
                     <ListItemText
                         primary={understandingRating}
                     />
                     <ListItemSecondaryAction>
-                        <IconButton aria-label="Delete">
-                            <DeleteIcon />
+                        <IconButton aria-label="Back">
+                            <BackIcon />
                         </IconButton>
                     </ListItemSecondaryAction>
                 </ListItem>
                 <ListItem>
                     <ListItemAvatar>
                         <Avatar>
-                            <FolderIcon />
+                            <CheckIcon color={ this.props.reduxStore.support === 0 ? "disabled" : "primary"} />
                         </Avatar>
                     </ListItemAvatar>
                     <ListItemText
                         primary={supportRating}
                     />
                     <ListItemSecondaryAction>
-                        <IconButton aria-label="Delete">
-                            <DeleteIcon />
+                        <IconButton aria-label="Back">
+                            <BackIcon />
                         </IconButton>
                     </ListItemSecondaryAction>
                 </ListItem>
                 <ListItem>
                     <ListItemAvatar>
                         <Avatar>
-                            <FolderIcon />
+                            <CheckIcon color={ this.props.reduxStore.comments.comments === '' ? "disabled" : "primary"} />
                         </Avatar>
                     </ListItemAvatar>
                     <ListItemText
                         primary={commentsRating}
                     />
                     <ListItemSecondaryAction>
-                        <IconButton aria-label="Delete">
-                            <DeleteIcon />
+                        <IconButton aria-label="Back">
+                            <BackIcon />
                         </IconButton>
                     </ListItemSecondaryAction>
                 </ListItem>

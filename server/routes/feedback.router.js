@@ -1,17 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const pg = require('pg');
 const Pool = require('./../modules/pool.js');
 const pool = Pool;
-
-// Database connection for weekend-to-do-app
-// const pool = new Pool({
-//     database: 'weekend-gallery',
-//     host: 'localhost',
-//     port: 5432,
-//     max: 10,
-//     idleTimeoutMillis: 10000
-// });
 
 
 // POST Route
