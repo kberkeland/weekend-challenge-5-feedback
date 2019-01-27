@@ -26,11 +26,15 @@ class CommentsForm extends Component {
         console.log(this.state.value);
     }
 
+    // function will send the user to the review page and set the comment value in redux
     sendToReview = () => {
+        // create a variable to send comments
         const commentsObject = { check: true,
                                  comments: this.state.value };
+        // set the action and payload for redux
         const action = { type: 'SET_COMMENTS', payload: commentsObject };
         this.props.dispatch(action);
+        // send the user to FeedbackReview.js page
         this.props.history.push('/review');
     } // end sendToSupportForm
 
@@ -58,13 +62,14 @@ class CommentsForm extends Component {
                 <br />
                 <br />
                 <br />
-                <br />
-                <br />
                 <div>
+                    <br />
                     <Button variant="contained" color="primary" onClick={this.sendToReview}>
                         Next page
                     </Button>
+                    <br />
                 </div>
+                <br />
                 <FeedbackReview />
             </div>
         )

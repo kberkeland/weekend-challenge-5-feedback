@@ -9,53 +9,21 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
-import FolderIcon from '@material-ui/icons/Folder';
-import DeleteIcon from '@material-ui/icons/Delete';
 import BackIcon from '@material-ui/icons/KeyboardBackspace';
 import CheckIcon from '@material-ui/icons/Check';
-import Button from '@material-ui/core/Button';
+
 
 class FeedbackReviewList extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            dense: false,
-        }
-    }
-
-    // sendToCongrats = () => {
-    //     const action = { type: 'RESET' };
-    //     this.props.dispatch(action);
-    //     return (
-    //         <div>
-    //             <Route exact path="/congrats" component={CongratsForm} />
-    //         </div>
-    //     )
-    // } // end sendToCongratsForm
-
-    // componentDidMount() {
-    //     if(this.props.reduxStore.feelings !== 0) {
-    //         feelingsColor
-    //     }
-    // }
 
     render() {
+        // Used in displaying the current rating on the feedback review with text to describe the rating
         const feelingsRating = `Feelings: ${this.props.reduxStore.feelings}`;
         const understandingRating = `Understanding: ${this.props.reduxStore.understanding}`;
         const supportRating = `Support: ${this.props.reduxStore.support}`;
         const commentsRating = `Comments: ${this.props.reduxStore.comments.comments}`;
-        // let completeDisabled = true;
-
-        // if( this.props.reduxStore.feelings !== 0 &&
-        //     this.props.reduxStore.understanding !== 0 &&
-        //     this.props.reduxStore.support !== 0 &&
-        //     this.props.reduxStore.comments.check) {
-        //         completeDisabled = false;
-        // } // end if
 
         return (
-            <List dense={this.state.dense} >
+            <List dense={false} >
                 <ListItem>
                     <ListItemAvatar>
                         <Avatar>
@@ -104,7 +72,7 @@ class FeedbackReviewList extends Component {
                 <ListItem>
                     <ListItemAvatar>
                         <Avatar>
-                            <CheckIcon color={ this.props.reduxStore.comments.comments === '' ? "disabled" : "primary"} />
+                            <CheckIcon color={ this.props.reduxStore.comments.check ? "primary" : "disabled" } />
                         </Avatar>
                     </ListItemAvatar>
                     <ListItemText
@@ -116,11 +84,6 @@ class FeedbackReviewList extends Component {
                         </IconButton>
                     </ListItemSecondaryAction>
                 </ListItem>
-                {/* <div>
-                    <Button variant="contained" color="primary" disabled={completeDisabled} onClick={this.sendToCongrats}>
-                        Submit Feedback
-                    </Button>
-                </div> */}
             </List>
         )
     }

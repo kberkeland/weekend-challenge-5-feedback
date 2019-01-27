@@ -9,10 +9,13 @@ import SupportForm from './../SupportForm/SupportForm.js';
 import CommentsForm from './../CommentsForm/CommentsForm.js';
 import CongratsForm from './../CongratsForm/CongratsForm';
 
+// material-ul import statements
+import Paper from '@material-ui/core/Paper';
+
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Paper elevation={1} className="App">
         <Header />
         <br/>
         <Router>
@@ -25,7 +28,7 @@ class App extends Component {
             <Route exact path="/congrats" component={CongratsForm} />
           </div>
         </Router>
-      </div>
+      </Paper>
     );
   }
 }

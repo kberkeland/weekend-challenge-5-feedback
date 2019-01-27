@@ -5,7 +5,6 @@ import FeedbackReview from './../FeedbackReview/FeedbackReview.js';
 // material-ul import statements
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
@@ -31,10 +30,12 @@ class SupportForm extends Component {
         console.log(this.state.value);
     }
 
+    // will set the value of support in redux and sent the user to the comments page
     sendToCommentsForm = () => {
-        // set the value for support in redux store
+        // type of action to perform in redux store and the value to be sent
         const action = { type: 'SET_SUPPORT', payload: Number(this.state.value) };
         this.props.dispatch(action);
+        // send the user to CommentsForm.js
         this.props.history.push('/comments');
     } // end sendToSupportForm
 
@@ -78,12 +79,16 @@ class SupportForm extends Component {
                             />
                         </RadioGroup>
                     </FormControl>
+                    <br />
                 </div>
                 <div>
+                    <br />
                     <Button variant="contained" color="primary" onClick={this.sendToCommentsForm}>
                         Next page
                     </Button>
+                    <br />
                 </div>
+                <br />
                 <FeedbackReview />
             </div>
         )

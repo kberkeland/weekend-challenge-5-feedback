@@ -6,7 +6,6 @@ import FeedbackReview from './../FeedbackReview/FeedbackReview.js';
 // material-ul import statements
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
@@ -32,12 +31,15 @@ class FeelingsForm extends Component {
         console.log(this.state.value);
     }
 
+    // function setting feelings in redux and sending the user to the understanding page
     sendToUnderstandingForm = () => {
-        // set the value for feelings in redux store
+        // set the action type and value for redux store
         const action = { type: 'SET_FEELINGS', payload: Number(this.state.value) };
         this.props.dispatch(action);
+        // push the user to the next page - UnderstandingForm.js
         this.props.history.push('/understanding');
     } // end sendToUnderstandingForm
+
 
     render() {
         return (
@@ -81,10 +83,13 @@ class FeelingsForm extends Component {
                     </FormControl>
                 </div>
                 <div>
+                    <br />
                     <Button variant="contained" color="primary" onClick={this.sendToUnderstandingForm}>
                         Next page
-                </Button>
+                    </Button>
+                    <br />
                 </div>
+                <br />
                 <FeedbackReview />
             </div>
         )
