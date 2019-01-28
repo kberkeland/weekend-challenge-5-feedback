@@ -10,6 +10,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
 
 class SupportForm extends Component {
     constructor(props) {
@@ -57,28 +58,27 @@ class SupportForm extends Component {
                             <FormControlLabel
                                 value="5"
                                 control={<Radio color="primary" />}
-                                label="I feel supported! - 5"
-                                labelPlacement="start" />
+                                label="5 - I feel supported!"
+                            />
                             <FormControlLabel
                                 value="4"
                                 control={<Radio color="primary" />}
                                 label="4"
-                                labelPlacement="start" />
+                            />
                             <FormControlLabel
                                 value="3"
                                 control={<Radio color="primary" />}
                                 label="3"
-                                labelPlacement="start" />
+                            />
                             <FormControlLabel
                                 value="2"
                                 control={<Radio color="primary" />}
                                 label="2"
-                                labelPlacement="start" />
+                            />
                             <FormControlLabel
                                 value="1"
                                 control={<Radio color="primary" />}
-                                label="I feel abandoned. - 1"
-                                labelPlacement="start" />
+                                label="1 - I feel abandoned."
                             />
                         </RadioGroup>
                     </FormControl>
@@ -92,6 +92,7 @@ class SupportForm extends Component {
                     <br />
                 </div>
                 <br />
+                <Divider variant="middle" />
                 <FeedbackReview />
             </div>
         )

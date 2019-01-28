@@ -19,7 +19,7 @@ class FeedbackReview extends Component {
             feelings: this.props.reduxStore.feelings,
             understanding: this.props.reduxStore.understanding,
             support: this.props.reduxStore.support,
-            comments: this.props.reduxStore.comments.comments         
+            comments: this.props.reduxStore.comments.comments
         };
 
         // axios POST request to send feedback to the database
@@ -54,31 +54,28 @@ class FeedbackReview extends Component {
         let completeDisabled = true;
 
         // if all feedback forms have been filled out enable the submit feedback button
-        if( this.props.reduxStore.feelings !== 0 &&
+        if (this.props.reduxStore.feelings !== 0 &&
             this.props.reduxStore.understanding !== 0 &&
             this.props.reduxStore.support !== 0 &&
             this.props.reduxStore.comments.check) {
-                completeDisabled = false;
+            completeDisabled = false;
         } // end if
 
         return (
-            <div>
-                {/* {this.displayHeader()} */}
-                <Grid container spacing={16}>
-                    {/* {JSON.stringify(this.props.reduxStore)} */}
-                    <Grid item xs={12} md={6}>
-                        <Typography variant="h6" >
-                            Review your feedback:
+            <Grid container justify = "center">
+                <Grid item xs={12} md={6} >
+                    <Typography variant="h6" >
+                        Review your feedback:
                         </Typography>
-                        <FeedbackReviewList />
-                    </Grid>
-                    <div className="button-div">
-                        <Button variant="contained" color="primary" disabled={completeDisabled} onClick={this.sendToCongrats}>
-                            Submit Feedback
-                        </Button>
-                    </div>
+                    <FeedbackReviewList />
+                    <br />
+                    <Button variant="contained" color="primary" disabled={completeDisabled} onClick={this.sendToCongrats}>
+                        Submit Feedback
+                    </Button>
+                    <br />
+                    <br />
                 </Grid>
-            </div>
+            </Grid>
         )
     }
 }
