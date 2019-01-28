@@ -58,6 +58,8 @@ class AdminForm extends Component {
                             <TableCell>Support</TableCell>
                             <TableCell>Comments</TableCell>
                             <TableCell>Date</TableCell>
+                            <TableCell>Flag for review</TableCell>
+                            <TableCell>Delete?</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

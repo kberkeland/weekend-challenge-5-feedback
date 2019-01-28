@@ -26,10 +26,23 @@ router.get('/', (req,res) => {
         res.send(result.rows);
     }).catch((error) => {
         // console log and error message for POST
-        console.log(`Error in POST route: ${error}`);
+        console.log(`Error in GET route: ${error}`);
         res.sendStatus(500);
     });
 }); // end GET route
+
+// PUT Route
+router.put('/flag/:id', (req, res) => {
+    let queryText = `UPDATE "feedback" SET "flagged" = TRUE WHERE "id" = $1;`;
+    pool.query(queryText, [req.params.id]).then((result) => {
+        // send the created response back
+        res.sendStatus(201);
+    }).catch((error) => {
+        // console log and error message for PUT error
+        console.log(`Error in router PUT: ${error}`);
+        res.sendStatus(500);
+    });
+}); // END PUT Route
 
 // DELETE Route
 router.delete('/delete/:id', (req,res) => {
