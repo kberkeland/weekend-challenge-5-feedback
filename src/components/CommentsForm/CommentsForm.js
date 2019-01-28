@@ -6,6 +6,7 @@ import MainHeader from '../Header/MainHeader.js';
 // material-ul import statements
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
 
 class CommentsForm extends Component {
     constructor(props) {
@@ -73,6 +74,7 @@ class CommentsForm extends Component {
                     <br />
                 </div>
                 <br />
+                <Divider variant="middle" />
                 <FeedbackReview />
             </div>
         )
