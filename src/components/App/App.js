@@ -8,6 +8,7 @@ import UnderstandingForm from './../UnderstandingForm/UndestandingForm.js';
 import SupportForm from './../SupportForm/SupportForm.js';
 import CommentsForm from './../CommentsForm/CommentsForm.js';
 import CongratsForm from './../CongratsForm/CongratsForm';
+import AdminForm from './../AdminForm/AdminForm.js';
 
 // material-ul import statements
 import Paper from '@material-ui/core/Paper';
@@ -26,6 +27,7 @@ class App extends Component {
             <Route exact path="/comments" component={CommentsForm} />
             <Route exact path="/review" component={FeedbackReview} />
             <Route exact path="/congrats" component={CongratsForm} />
+            <Route exact path="/admin" component={AdminForm} />
           </div>
         </Router>
       </Paper>
