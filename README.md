@@ -43,6 +43,7 @@ High level list of items completed.
 - [x] Last page for feedback allows the user to enter comments.
 - [x] Summary page with a button to submit the data to a database.
 - [x] Admin page that allows an administrator to see feedback.
+- [x] Create an option on the admin page to flag for review.
 
 
 ### Next Steps
@@ -50,8 +51,10 @@ High level list of items completed.
 Features that you would like to add at some point in the future.
 
 - [ ] Better styling of the pages with material-ui.
+- [ ] Fix the sort by date after a user clicks on the flag for review option.
 - [ ] Add a stepper to show feedback progress.
 - [ ] Add the ability to use the arrow icons on FeedbackReview.js to go back to that feedback form.
+- [ ] Slim down the code, many of the forms could be reduced and some items could be made into components.
 - [ ] Deploy using Heroku.
 
 

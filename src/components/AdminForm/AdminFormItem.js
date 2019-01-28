@@ -19,7 +19,7 @@ class AdminFormItem extends Component {
         // send PUT request to update the like value for an item clicked
         axios({
             method: 'PUT',
-            url: `/feedback/flag/${this.props.feedback.id}`,
+            url: `/feedback/flag/${this.props.feedback.id}/${this.props.feedback.flagged}`,
         }).then((response) => {
             // refresh the feedback table
             this.props.getFeedbackData();
@@ -73,15 +73,19 @@ class AdminFormItem extends Component {
                 <TableCell>{this.props.feedback.comments}</TableCell>
                 <TableCell>{moment(this.props.feedback.date).format("dddd, MMMM Do YYYY")}</TableCell>
                 <TableCell>
-                    <Tooltip title="Flag for review">
-                        <IconButton aria-label="Flag" onClick={this.handleFlagClick}>
+                    <Tooltip title={ this.props.feedback.flagged ? "Item has been flagged for review" : "Flag for review?"}>
+                        <IconButton aria-label="Flag" 
+                                    color={ this.props.feedback.flagged ? "primary" : "default"}
+                                    onClick={this.handleFlagClick}>
                             <FlagIcon />
                         </IconButton>
                     </Tooltip>
                 </TableCell>
                 <TableCell>
                     <Tooltip title="Delete">
-                        <IconButton aria-label="Delete" onClick={this.handleDeleteClick}>
+                        <IconButton aria-label="Delete" 
+                                    color="secondary" 
+                                    onClick={this.handleDeleteClick}>
                             <DeleteIcon />
                         </IconButton>
                     </Tooltip>
