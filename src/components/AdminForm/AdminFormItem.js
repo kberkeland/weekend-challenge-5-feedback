@@ -10,8 +10,25 @@ import TableRow from '@material-ui/core/TableRow';
 import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
+import FlagIcon from '@material-ui/icons/Flag';
 
 class AdminFormItem extends Component {
+
+    // click handler for the like button
+    handleFlagClick = () => {
+        // send PUT request to update the like value for an item clicked
+        axios({
+            method: 'PUT',
+            url: `/feedback/flag/${this.props.feedback.id}/${this.props.feedback.flagged}`,
+        }).then((response) => {
+            // refresh the feedback table
+            this.props.getFeedbackData();
+        }).catch((error) => {
+            // Console log and alert for error PUT
+            console.log(`Error in axios PUT: ${error}`);
+            alert(`Error flagging the feedback.`);
+        });
+    } // end handleFlagClick
 
     // click handler for the delete button
     handleDeleteClick = () => {
@@ -56,8 +73,19 @@ class AdminFormItem extends Component {
                 <TableCell>{this.props.feedback.comments}</TableCell>
                 <TableCell>{moment(this.props.feedback.date).format("dddd, MMMM Do YYYY")}</TableCell>
                 <TableCell>
+                    <Tooltip title={ this.props.feedback.flagged ? "Item has been flagged for review" : "Flag for review?"}>
+                        <IconButton aria-label="Flag" 
+                                    color={ this.props.feedback.flagged ? "primary" : "default"}
+                                    onClick={this.handleFlagClick}>
+                            <FlagIcon />
+                        </IconButton>
+                    </Tooltip>
+                </TableCell>
+                <TableCell>
                     <Tooltip title="Delete">
-                        <IconButton aria-label="Delete" onClick={this.handleDeleteClick}>
+                        <IconButton aria-label="Delete" 
+                                    color="secondary" 
+                                    onClick={this.handleDeleteClick}>
                             <DeleteIcon />
                         </IconButton>
                     </Tooltip>

@@ -20,16 +20,37 @@ router.post('/', (req,res) => {
 
 // GET Route
 router.get('/', (req,res) => {
-    let queryText = `SELECT * FROM "feedback" ORDER BY DATE DESC;`;
+    let queryText = `SELECT * FROM "feedback" ORDER BY "date" DESC;`;
     pool.query(queryText).then((result) => {
         // send a response of created back to the client
         res.send(result.rows);
     }).catch((error) => {
         // console log and error message for POST
-        console.log(`Error in POST route: ${error}`);
+        console.log(`Error in GET route: ${error}`);
         res.sendStatus(500);
     });
 }); // end GET route
+
+// PUT Route
+router.put('/flag/:id/:flagged', (req, res) => {
+    // toggle flagged for review
+    let flaggedToggle = '';
+    if (req.params.flagged == 'true') {
+        flaggedToggle = 'FALSE';
+    } else {
+        flaggedToggle = 'TRUE';
+    }
+    console.log(flaggedToggle);
+    let queryText = `UPDATE "feedback" SET "flagged" = $1 WHERE "id" = $2;`;
+    pool.query(queryText, [flaggedToggle, req.params.id]).then((result) => {
+        // send the created response back
+        res.sendStatus(201);
+    }).catch((error) => {
+        // console log and error message for PUT error
+        console.log(`Error in router PUT: ${error}`);
+        res.sendStatus(500);
+    });
+}); // END PUT Route
 
 // DELETE Route
 router.delete('/delete/:id', (req,res) => {
