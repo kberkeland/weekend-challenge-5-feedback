@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FeedbackReview from './../FeedbackReview/FeedbackReview.js';
+import MainHeader from '../Header/MainHeader.js';
 
 // material-ul import statements
 import TextField from '@material-ui/core/TextField';
@@ -41,6 +42,8 @@ class CommentsForm extends Component {
     render() {
         return (
             <div>
+                <MainHeader />
+                <br />
                 <TextField
                     id="outlined-multiline-flexible"
                     label="Comments"

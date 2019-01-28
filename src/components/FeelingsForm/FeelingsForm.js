@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './FeelingsForm.css';
 import { connect } from 'react-redux';
 import FeedbackReview from './../FeedbackReview/FeedbackReview.js';
+import MainHeader from '../Header/MainHeader.js';
 
 // material-ul import statements
 import Radio from '@material-ui/core/Radio';
@@ -44,6 +45,8 @@ class FeelingsForm extends Component {
     render() {
         return (
             <div>
+                <MainHeader />
+                <br />
                 <div className="div-class">
                     <FormControl component="fieldset">
                         <FormLabel component="legend">How are you feeling today?</FormLabel>

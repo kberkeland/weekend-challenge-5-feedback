@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './AdminForm.css';
 import AdminFormItem from './AdminFormItem.js';
+import AdminHeader from './../Header/AdminHeader.js';
 import axios from 'axios';
 
 // material-ul import statements
@@ -46,22 +47,26 @@ class AdminForm extends Component {
 
     render() {
         return (
-            <Table className="table-css">
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Feeling</TableCell>
-                        <TableCell>Comprehension</TableCell>
-                        <TableCell>Support</TableCell>
-                        <TableCell>Comments</TableCell>
-                        <TableCell>Date</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {this.state.feedbackArray.map(feedback => (
-                        <AdminFormItem key={feedback.id} feedback={feedback} getFeedbackData={this.getFeedbackData}/>
-                    ))}
-                </TableBody>
-            </Table>
+            <div>
+                <AdminHeader />
+                <br />
+                <Table className="table-css">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Feeling</TableCell>
+                            <TableCell>Comprehension</TableCell>
+                            <TableCell>Support</TableCell>
+                            <TableCell>Comments</TableCell>
+                            <TableCell>Date</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {this.state.feedbackArray.map(feedback => (
+                            <AdminFormItem key={feedback.id} feedback={feedback} getFeedbackData={this.getFeedbackData} />
+                        ))}
+                    </TableBody>
+                </Table>
+            </div>
         )
     }
 }
