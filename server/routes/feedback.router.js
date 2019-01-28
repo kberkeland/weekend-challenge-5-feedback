@@ -31,4 +31,17 @@ router.get('/', (req,res) => {
     });
 }); // end GET route
 
+// DELETE Route
+router.delete('/delete/:id', (req,res) => {
+    let queryText = `DELETE FROM "feedback" WHERE "id" = $1;`;
+    pool.query(queryText, [req.params.id]).then((result) => {
+        // send confirmation of delete to client
+        res.sendStatus(200);
+    }).catch((error) => {
+        // console log and error message for DELETE error
+        console.log(`Error in router DELETE: ${error}`);
+        res.sendStatus(500);
+    });
+}); // end DELETE route
+
 module.exports = router;

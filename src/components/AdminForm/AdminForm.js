@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './AdminForm.css';
+import AdminFormItem from './AdminFormItem.js';
 import axios from 'axios';
-import moment from 'moment';
 
 // material-ul import statements
 import Table from '@material-ui/core/Table';
@@ -58,15 +58,7 @@ class AdminForm extends Component {
                 </TableHead>
                 <TableBody>
                     {this.state.feedbackArray.map(feedback => (
-                        <TableRow key={feedback.id}>
-                            <TableCell component="th" scope="row">
-                                {feedback.feeling}
-                            </TableCell>
-                            <TableCell>{feedback.understanding}</TableCell>
-                            <TableCell>{feedback.support}</TableCell>
-                            <TableCell>{feedback.comments}</TableCell>
-                            <TableCell>{moment(feedback.date).format("dddd, MMMM Do YYYY")}</TableCell>
-                        </TableRow>
+                        <AdminFormItem key={feedback.id} feedback={feedback} getFeedbackData={this.getFeedbackData}/>
                     ))}
                 </TableBody>
             </Table>
