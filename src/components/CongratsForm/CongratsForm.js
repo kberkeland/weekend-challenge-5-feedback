@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CongratsHeader from '../Header/CongratsHeader.js';
 
 // material-ul import statements
 import Typography from '@material-ui/core/Typography';
@@ -15,6 +16,8 @@ class CongratsForm extends Component {
     render() {
         return (
             <div>
+                <CongratsHeader />
+                <br />
                 <Typography variant="h3" component="h3">
                     Congratulations!
                 </Typography>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FeedbackReview from './../FeedbackReview/FeedbackReview.js';
+import MainHeader from '../Header/MainHeader.js';
 
 // material-ul import statements
 import Radio from '@material-ui/core/Radio';
@@ -42,6 +43,8 @@ class SupportForm extends Component {
     render() {
         return (
             <div>
+                <MainHeader />
+                <br />
                 <div className="div-class">
                     <FormControl component="fieldset">
                         <FormLabel component="legend">Did you feel supported by Prime staff today?</FormLabel>

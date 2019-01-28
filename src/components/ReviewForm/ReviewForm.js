@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import FeedbackReviewList from './FeedbackReviewList.js';
-import './FeedbackReview.css';
+import FeedbackReviewList from './../FeedbackReview/FeedbackReviewList.js';
+import MainHeader from '../Header/MainHeader.js';
 
 // material-ul import statements
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-class FeedbackReview extends Component {
+class ReviewForm extends Component {
 
     // function will add the feedback to the database and reset the redux store
     sendToCongrats = () => {
@@ -40,14 +40,6 @@ class FeedbackReview extends Component {
         });
     } // end sendToCongratsForm
 
-    // // show the header if on review page
-    // displayHeader = () => {
-    //     console.log(this.props);
-    //     if(this.props.match.path === '/review') {
-    //         return (<MainHeader />);
-    //     }
-    // } // end displayHeader
-
     render() {
 
         // set the feedback submit button to disabled
@@ -63,7 +55,8 @@ class FeedbackReview extends Component {
 
         return (
             <div>
-                {/* {this.displayHeader()} */}
+                <MainHeader />
+                <br />
                 <Grid container spacing={16}>
                     {/* {JSON.stringify(this.props.reduxStore)} */}
                     <Grid item xs={12} md={6}>
@@ -87,4 +80,4 @@ const mapReduxStoreToProps = (reduxStore) => ({
     reduxStore
 });
 
-export default connect(mapReduxStoreToProps)(FeedbackReview);
+export default connect(mapReduxStoreToProps)(ReviewForm);

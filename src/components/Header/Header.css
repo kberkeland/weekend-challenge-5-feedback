@@ -1,11 +1,24 @@
-
-.header {
+.main-header {
     background-color: #033076;
     min-height: 70px;
     padding: 20px;
     color: white;
 }
-  
+
+.congrats-header {
+    background-color: green;
+    min-height: 70px;
+    padding: 20px;
+    color: white;
+}
+
+.admin-header {
+    background-color: #09f3e7;
+    min-height: 70px;
+    padding: 20px;
+    color: black;
+}
+
 .title {
     font-size: 1.5em;
 }
